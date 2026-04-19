@@ -1,6 +1,7 @@
 import axios from "axios";
 
-const API = "http://localhost:5000/api/user";
+// const API = "http://localhost:5000/api/user";
+const API = import.meta.env.VITE_API_URL;
 
 
 axios.defaults.withCredentials = true;
