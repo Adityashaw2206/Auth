@@ -9,18 +9,16 @@ import About from "./pages/About";
 import Profile from "./pages/Profile";
 function App() {
   return (
-    <BrowserRouter>
-      <div className="min-h-screen bg-gray-100">
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/profile" element={<Profile />} />
-        </Routes>
-      </div>
-    </BrowserRouter>
+    <div className="min-h-screen bg-gray-100">
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/profile" element={<Profile />} />
+      </Routes>
+    </div>
   );
 }
 
