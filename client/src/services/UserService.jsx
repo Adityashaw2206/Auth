@@ -8,11 +8,11 @@ axios.defaults.withCredentials = true;
 
 // UPDATE
 export const updateUserAPI = (id, data) =>
-  axios.patch(`${API}/update/${id}`, data);
+  axios.patch(`${API}/api/user/update/${id}`, data);
 
 // DELETE
 export const deleteUserAPI = (id) =>
-  axios.delete(`${API}/delete/${id}`);
+  axios.delete(`${API}/api/user/delete/${id}`);
 
 // export const updateUserAPI = (id, data) => {
 //   const token = localStorage.getItem("accessToken");

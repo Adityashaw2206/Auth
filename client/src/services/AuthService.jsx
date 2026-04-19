@@ -5,20 +5,20 @@ const API = import.meta.env.VITE_API_URL;
 axios.defaults.withCredentials = true;
 // LOGIN
 export const loginUser = (data) =>
-  axios.post(`${API}/login`, data);
+  axios.post(`${API}/api/auth/login`, data);
 
 // REGISTER
 export const registerUser = (data) =>
-  axios.post(`${API}/signup`, data);
+  axios.post(`${API}/api/auth/signup`, data);
 
 // LOGOUT
 export const logoutUser = () =>
-  axios.post(`${API}/logout`);
+  axios.post(`${API}/api/auth/logout`);
 
 // REFRESH TOKEN
 export const refreshTokenAPI = () =>
-  axios.get(`${API}/refreshtoken`);
+  axios.get(`${API}/api/auth/refreshtoken`);
 
 // GOOGLE LOGIN
 export const googleLoginAPI = (data) =>
-  axios.post(`${API}/google`, data);
+  axios.post(`${API}/api/auth/google`, data);
