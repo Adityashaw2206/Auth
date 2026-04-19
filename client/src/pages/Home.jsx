@@ -1,7 +1,4 @@
-// import { useAuth } from "../context/authContext";
-
 const Home = () => {
-  // const { user } = useAuth();
 
   return (
     <div className="px-4 py-20 max-w-2xl mx-auto">

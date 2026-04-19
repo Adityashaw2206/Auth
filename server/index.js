@@ -1,9 +1,6 @@
 import dotenv from 'dotenv';
 import express from 'express';
 import {connectDB} from "./db/index.js";
-// import app from "./app.js";
-// import connectCloudinary from "./cloudinary/index.js";
-import { connect } from 'mongoose';
 import cookieParser from 'cookie-parser';
 import authRouter from './routes/auth.route.js';
 import userRouter from './routes/user.route.js';
@@ -18,10 +15,6 @@ app.use(express.json());
 app.get("/", (req, res) => {
   res.send("API is running 🚀");
 });
-// app.use(cors({
-//     origin: process.env.CORS_ORIGIN, 
-//     credentials: true,
-// }))
 app.use(
   helmet({
     crossOriginOpenerPolicy: false, // ✅ FIX
@@ -59,6 +52,3 @@ connectDB()
     console.log("MongoDB connection failed !!",err);
     
 })
-
-// connectCloudinary()
-

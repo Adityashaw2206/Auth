@@ -22,14 +22,11 @@ const Profile = () => {
 
     const result = await res.json();
 
-    // 🔥 VERY IMPORTANT
+    //VERY IMPORTANT
     if (!res.ok) {
       console.log("CLOUDINARY ERROR:", result);
       throw new Error(result.error?.message || "Upload failed");
     }
-
-    console.log("CLOUDINARY SUCCESS:", result);
-
     return result.secure_url;
   };
 
@@ -58,17 +55,12 @@ const Profile = () => {
     setPreviewImage(user.profilePicture || "");
   }, [user, navigate]);
 
-  // 🔥 HANDLE IMAGE UPLOAD
   const handleImageChange = async (e) => {
     const file = e.target.files[0];
     if (!file) return;
 
     try {
-      console.log("Uploading image...");
-
       const imageUrl = await uploadImage(file);
-
-      console.log("IMAGE URL:", imageUrl);
 
       setPreviewImage(imageUrl);
 
@@ -103,9 +95,6 @@ const Profile = () => {
       if (form.profilePicture) {
         updatedData.profilePicture = form.profilePicture;
       }
-
-      console.log("UPDATING DATA:", updatedData);
-
       await updateUser(updatedData);
 
       alert("Profile updated successfully");

@@ -5,7 +5,6 @@ import { useEffect } from "react";
 const Login = () => {
   const { login, googleLogin, user } = useAuth();
   const navigate = useNavigate();
-  // const { user } = useAuth();
 
   useEffect(() => {
     if (user) {
@@ -53,7 +52,6 @@ const Login = () => {
           </button>
         </form>
 
-        {/* 🔥 GOOGLE LOGIN */}
         <button
           onClick={googleLogin}
           className="w-full mt-4 bg-red-500 text-white p-2 rounded"
@@ -61,7 +59,6 @@ const Login = () => {
           Login with Google
         </button>
 
-        {/* 🔥 SIGN UP LINK (IMPORTANT) */}
         <p className="text-center mt-5 text-sm">
           Don’t have an account?{" "}
           <Link to="/register" className="text-blue-500 font-semibold">

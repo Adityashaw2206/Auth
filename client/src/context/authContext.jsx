@@ -14,7 +14,6 @@ import { signInWithPopup } from "firebase/auth";
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-  // const [user, setUser] = useState(null);
 
   const [user, setUser] = useState(() => {
     try {
@@ -51,7 +50,6 @@ export const AuthProvider = ({ children }) => {
     try {
       setLoading(true);
       const res = await loginUser(data);
-      console.log("AUTH LOGIN:", res.data);
       const userData = res.data.data.user;
       const token = res.data.data.accessToken;
       if (!userData || !token) {
@@ -59,8 +57,6 @@ export const AuthProvider = ({ children }) => {
       }
       setUser(userData);
       setAccessToken(token);
-      console.log("AUTH LOGIN - USER SET TO:", res.data.data.user);
-
       localStorage.setItem("user", JSON.stringify(res.data.data.user));
       localStorage.setItem("accessToken", res.data.data.accessToken);
     } catch (err) {
@@ -111,17 +107,11 @@ export const AuthProvider = ({ children }) => {
       localStorage.setItem("accessToken", res.data.accessToken);
       return res.data.accessToken;
     } catch (err) {
-      console.log(err);
-
-      // logout();
-      // ❌ DON'T treat as error
       if (err.response?.status === 401) {
-        console.log("No session, user not logged in"); // ✅ normal
+        console.log("No session, user not logged in");
         return null;
       }
-
-      console.log("Refresh error:", err);
-    }
+      console.log("Error refreshing token:", err);}
   };
 
   // 🔹 GOOGLE LOGIN
@@ -189,7 +179,6 @@ export const AuthProvider = ({ children }) => {
 
   const updateUser = async (data) => {
     try {
-      console.log("UPDATING USER ID:", user?._id);
       const res = await updateUserAPI(user._id, data);
       setUser(res.data.data);
       localStorage.setItem("user", JSON.stringify(res.data.data));
