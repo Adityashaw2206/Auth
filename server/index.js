@@ -14,6 +14,10 @@ import { errorMiddleware } from './middleware/error.Middleware.js';
 dotenv.config()
 const app = express();
 app.use(express.json());
+
+app.get("/", (req, res) => {
+  res.send("API is running 🚀");
+});
 // app.use(cors({
 //     origin: process.env.CORS_ORIGIN, 
 //     credentials: true,
@@ -25,7 +29,10 @@ app.use(
 );
 app.use(
   cors({
-    origin: "http://localhost:5173", // frontend URL
+    origin: [
+      "http://localhost:5173",
+      "https://your-frontend-url.onrender.com", // 👈 add this
+    ],
     credentials: true,
   })
 );
